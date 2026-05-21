@@ -1,0 +1,39 @@
+* {
+    background-color: black;
+    color: white;
+}
+
+
+
+.drawingBoard{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 20px;
+    flex: 0 0;
+}
+
+.pixel {
+    border: solid rgb(80, 80, 80) 1px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.pixel:hover {
+    transform: scale(1.1);
+}
+
+.lastRow {
+    border-bottom: solid rgb(80, 80, 80) 1px;
+}
+
+.lastColumn {
+    border-right: solid rgb(80, 80, 80) 1px;;
+}
+
+.colorPalette {
+    display: flex;
+}
+.color {
+    margin:1px;
+}
