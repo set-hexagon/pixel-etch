@@ -28,7 +28,7 @@
 }
 
 .lastColumn {
-    border-right: solid rgb(80, 80, 80) 1px;;
+    border-right: solid rgb(80, 80, 80) 1px;
 }
 
 .colorPalette {
@@ -36,4 +36,20 @@
 }
 .color {
     margin:1px;
+}
+
+button {
+    padding:5px;
+    margin: 10px;
+}
+
+.tools {
+    display: flex;
+    gap: 2px;
+    margin: 0 10px;
+}
+
+.tool {
+    padding:5px;
+    border: solid rgb(80, 80, 80) 1px;
 }

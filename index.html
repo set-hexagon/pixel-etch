@@ -7,10 +7,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="tools"></div>
+    <div class="tools">
+        <div id="pen" class="tool">pen</div>
+        <div id="eraser" class="tool">eraser</div>
+        <div id="select" class="tool">select</div>
+        <div id="move" class="tool">move</div>
+        <div id="rotate" class="tool">rotate</div>
+        <div id="colorPicker" class="tool">colorPicker</div>
+        <div id="zoom" class="tool">zoom</div>
+        <div id="transparency" class="tool">transparency</div>
+        <div id="shapeTools" class="tools">
+            <div id="ellipse" class="tool">ellipse</div>
+            <div id="line" class="tool">line</div>
+            <div id="triangle" class="tool">triangle</div>
+            <div id="rectangle" class="tool">rectangle</div>
+        </div>
+    </div>
     <div class="drawingBoard"></div>
     <div class="colorPalette"></div>
-    <button onclick="resetBoard()">reset</button>
+
+    <div class="layoutTools">
+        <button onclick="resetBoard()" id="resetBtn">reset</button>
+        <input type="text" id="boardSize" placeholder="64" autocomplete="off">
+        <input type="text" id="pixelSize" placeholder="10" autocomplete="off">
+    </div>
 
     <script src="script.js"></script>
 </body>

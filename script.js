@@ -1,8 +1,6 @@
-const boardSize = 64;
-const pixelSize = 10;
+let boardSize = 64;
+let pixelSize = 10;
 const paletteColorSize = 20;
-// board width = width taken by the pixels + borders (n+1 borders)
-const boardWidth = pixelSize * boardSize + boardSize + 1;
 
 var mainColor = "white";
 
@@ -58,6 +56,8 @@ const drawBoard = document.querySelector(".drawingBoard");
 const colorPalette = document.querySelector(".colorPalette");
 
 function setUpDrawingBoard() {
+    // board width = width taken by the pixels + borders (n+1 borders)
+    let boardWidth = pixelSize * boardSize + boardSize + 1;
     drawBoard.style.width = boardWidth+"px";
 
     for (let i = 0; i < boardSize; i++){
@@ -71,6 +71,13 @@ function setUpDrawingBoard() {
             if (i == boardSize-1) pixel.classList.add("lastRow");
             if (j == boardSize-1) pixel.classList.add("lastColumn"); 
         }
+    }
+}
+
+function removeDrawingBoard() {
+    const pixels = document.querySelectorAll(".pixel");
+    for (let pixel of pixels) {
+        pixel.remove();
     }
 }
 
@@ -88,6 +95,7 @@ function setUpColorPalette() {
 setUpDrawingBoard();
 setUpColorPalette();
 
+//drawing while draggin and clicking
 let dragging = false;
 drawBoard.addEventListener("mousedown", () => {
     dragging = true;
@@ -113,6 +121,38 @@ function resetBoard() {
     });
 }
 
+//changes primary color
 colorPalette.addEventListener("click", (color) => {
     mainColor = color.target.style.backgroundColor;
+});
+
+
+// using user input to alter board size
+const boardSizeInput = document.querySelector("#boardSize");
+boardSizeInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        if (Number.isInteger(+e.target.value)){
+            boardSize = +e.target.value;
+            removeDrawingBoard();
+            setUpDrawingBoard();
+        }
+        else {
+            console.error("enter valid input");
+        }
+    }
+});
+
+// using user input to alter pixel size
+const pixelSizeInput = document.querySelector("#pixelSize");
+pixelSizeInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        if (Number.isInteger(+e.target.value)){
+            pixelSize = +e.target.value;
+            removeDrawingBoard();
+            setUpDrawingBoard();
+        }
+        else {
+            console.error("enter valid input");
+        }
+    }
 });
